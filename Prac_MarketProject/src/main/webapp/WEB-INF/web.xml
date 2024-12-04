@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+	<security-role>
+		<role-name>administrator</role-name> <!-- 역할과 이름 명시 --> 
+	</security-role>
+	<security-constraint> <!-- 시큐리티 제약 사항 --> 
+		<web-resource-collection> 		
+			<web-resource-name>Prac_MarketProject</web-resource-name> <!-- 웹자원 이름 설정, 생략가능 -->
+			<url-pattern> /gameadd.jsp </url-pattern> <!-- 접근제한 요청할 url목록 설정. 제한 안하면 생략가능. -->
+			<http-method>GET</http-method> <!-- http 메소드 설정(GET/POST) -->
+		</web-resource-collection> <!-- 웹 자원에 대한 접근 설정 --> 
+		<auth-constraint> 
+			<description> 관리자 </description>
+			<role-name> admin </role-name>
+			<!-- tomcat-users.xml에 등록된것만 쓸수있음. 모든사용자에게 권한부여시 *로 표시. 
+			생략하면 아무도 못쓰게만드는듯. -->
+		</auth-constraint> <!-- 웹 자원에 접근할 수 있는 인증된 사용자 설정 --> 
+	</security-constraint>
+	<login-config>
+		<auth-method>FORM</auth-method>
+		<form-login-config>
+			<form-login-page>/login.jsp</form-login-page>
+			<form-error-page>/login_failed.jsp</form-error-page>
+		</form-login-config>
+	</login-config>
+	
+	<filter>
+		<filter-name>LogFileFilter</filter-name>
+		<filter-class>filter.LogFileFilter</filter-class>
+		<init-param>
+			<param-name>filename</param-name>
+			<param-value>E:\pracGM\loginlog.log</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>LogFileFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>LogFilter</filter-name>
+		<filter-class>filter.LogFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>LogFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<error-page>
+		<error-code>404</error-code>
+		<location>/exceptionNoPage.jsp</location>
+	</error-page>
+
+</web-app>	
+
+<!-- <user-data-constraint>INTEGRAL</user-data-constraint>
+		데이터 전송시 데이터보호설정.
+		NONE => 데이터 보호 안했음. INTEGRAL => 전송중 데이터변경 없었음. CONFIDENTIAL => 아무도 훔쳐보지않음(기밀성)
+		--> 
+<!--
+	<security-role>
+		<role-name>user_bronze</role-name>
+	</security-role>
+
+	<security-role>
+		<role-name>user_silver</role-name>
+	</security-role>
+-->

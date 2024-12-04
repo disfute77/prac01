@@ -1,0 +1,39 @@
+@charset "utf-8";
+fieldset {
+    width: 620px; /* 원하는 너비로 조정 */
+    margin-left: 30px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.form-biggroup2 {
+	display: block;
+	width: 100%;
+}
+.form-group {
+	width: 300px;
+	
+    margin: 0 5px 5px; /* 각 그룹 간의 간격 */
+}
+
+label {
+    display: block; /* 레이블을 블록 요소로 설정 */
+    margin-bottom: 5px; /* 레이블과 인풋 간의 간격 */
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+textarea {
+    width: 100%; /* 인풋 박스의 너비를 100%로 설정 */
+    padding: 8px; /* 패딩 추가 */
+    box-sizing: border-box; /* 패딩을 포함한 너비 계산 */
+    resize: vertical;
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="file"] {
+    margin-top: 2px; /* 버튼 간의 간격 */
+}
