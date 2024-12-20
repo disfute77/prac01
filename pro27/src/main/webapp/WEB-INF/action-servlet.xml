@@ -1,27 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                           http://www.springframework.org/schema/aop
+                           http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context-3.0.xsd
+                           http://www.springframework.org/schema/mvc
+                           http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-<beans xmlns = "http://www.springframework.org/schema/beans"
-xmlns:p = "http://www.springframework.org/schema/p"
-xmlns:aop = "http://www.springframework.org/schema/aop"
-xmlns:context = "http://www.springframework.org/schema/context"
-xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation = "http://www.springframework.org/schema/beans
-http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-http://www.springframework.org/schema/aop
-http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
-http://www.springframework.org/schema/context
-http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+    <!-- MVC 애너테이션 기반 설정 활성화 -->
+    <mvc:annotation-driven />
 
-	<bean class = "org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name = "prefix" value = "/WEB-INF/views/" />
-		<property name = "suffix" value = ".jsp" />	
-	</bean>
-	
-	<bean class = "org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
-	<bean class = "org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
-	<context:component-scan base-package="com.spring" />
+    <!-- InternalResourceViewResolver 설정 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+
+    <!-- 멀티파트 업로드 설정 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="52428800" /> <!-- 50MB -->
+        <property name="maxInMemorySize" value="1000000" /> <!-- 1MB -->
+        <property name="defaultEncoding" value="utf-8" />
+    </bean>
+
+    <!-- 컴포넌트 스캔 -->
+    <context:component-scan base-package="com.spring" />
+
 </beans>
-
-
-
-

@@ -14,7 +14,7 @@
   <properties>
     <!-- 프로젝트에서 사용할 속성 정의 -->
     <java-version>1.6</java-version> <!-- Java 버전 -->
-    <org.springframework-version>3.1.1.RELEASE</org.springframework-version> <!-- Spring 버전 -->
+    <org.springframework-version>4.1.1.RELEASE</org.springframework-version> <!-- Spring 버전 -->
     <org.aspectj-version>1.6.10</org.aspectj-version> <!-- AspectJ 버전 -->
     <org.slf4j-version>1.6.6</org.slf4j-version> <!-- SLF4J 버전 -->
   </properties>
@@ -38,6 +38,12 @@
       <artifactId>spring-webmvc</artifactId>
       <version>${org.springframework-version}</version>
     </dependency>
+    
+    <dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-context-support</artifactId>
+		<version>${org.springframework-version}</version>
+	</dependency>
     
     <!-- AspectJ 관련 의존성 -->
     <dependency>
@@ -132,6 +138,24 @@
       <version>1.2</version>
     </dependency>
     
+    <dependency>
+      <groupId>javax.mail</groupId>
+      <artifactId>javax.mail-api</artifactId>
+      <version>1.5.4</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sun.mail</groupId>
+      <artifactId>javax.mail</artifactId>
+      <version>1.5.3</version>
+    </dependency>
+    
+    <!-- JSON -->
+    <dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-databind</artifactId>
+		<version>2.5.4</version>
+	</dependency>
+    
     <!-- 테스트 관련 의존성 -->
     <dependency>
       <groupId>junit</groupId>
@@ -176,6 +200,24 @@
       <artifactId>mysql-connector-java</artifactId>
       <version>5.1.29</version>
     </dependency>
+    
+	<dependency>
+	    <groupId>commons-fileupload</groupId>
+	    <artifactId>commons-fileupload</artifactId>
+	    <version>1.5</version>
+	</dependency>
+
+	<dependency>
+	    <groupId>commons-io</groupId>
+	    <artifactId>commons-io</artifactId>
+	    <version>2.14.0</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>net.coobird</groupId>
+	    <artifactId>thumbnailator</artifactId>
+	    <version>0.4.8</version>
+	</dependency>
     
     <dependency>
       <groupId>jdbc.oracle</groupId>

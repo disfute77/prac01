@@ -20,4 +20,6 @@ public interface MemberDAO {
     int updateMember(MemberVO memberVO) throws DataAccessException;
     
     int login(MemberVO memberVO) throws DataAccessException;
+    
+    MemberVO loginById(MemberVO memberVO) throws DataAccessException;
 }

@@ -13,7 +13,8 @@
    	<context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>/WEB-INF/action-servlet.xml</param-value>
-        <param-value>/WEB-INF/config/action-mybatis.xml</param-value>
+        <param-value>/WEB-INF/appServlet/servlet-context.xml</param-value>        
+        <param-value>/WEB-INF/config/*.xml</param-value>
     </context-param>
     
     <filter>

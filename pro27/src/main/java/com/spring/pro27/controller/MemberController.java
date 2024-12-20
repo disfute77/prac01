@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.pro27.vo.MemberVO;
 
@@ -21,4 +22,11 @@ public interface MemberController {
 
     // 회원 추가 및 수정 폼을 반환하는 메소드
     ModelAndView form(HttpServletRequest request, HttpServletResponse response) throws Exception;
+    
+    ModelAndView login(@ModelAttribute("idpw") MemberVO member,
+    										RedirectAttributes rAttr,
+			  								 HttpServletRequest request,
+			  								HttpServletResponse response) throws Exception;
+    
+    ModelAndView logout(HttpServletRequest request, HttpServletResponse response) throws Exception;
 }

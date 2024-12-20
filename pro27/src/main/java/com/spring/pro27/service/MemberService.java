@@ -18,5 +18,5 @@ public interface MemberService {
     
     int updateMember(MemberVO membervo) throws DataAccessException;
     
-    int login(MemberVO memberVO) throws DataAccessException;
+    MemberVO login(MemberVO memberVO) throws DataAccessException;
 }

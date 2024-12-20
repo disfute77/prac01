@@ -26,4 +26,9 @@ public class HomeController {
 		return "home";
 	}
 	
+	@RequestMapping(value="/Home2.do", method=RequestMethod.GET)
+	public String home2(Locale locale, Model model) {
+		return "test/JSONTest";
+	}
+	
 }

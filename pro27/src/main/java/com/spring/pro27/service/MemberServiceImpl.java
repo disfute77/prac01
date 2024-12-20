@@ -38,8 +38,8 @@ public class MemberServiceImpl implements MemberService {
 		return memberDAO.updateMember(memberVO);
 	}
 	
-	public int login(MemberVO memberVO) throws DataAccessException {
-		return memberDAO.login(memberVO);
+	public MemberVO login(MemberVO memberVO) throws DataAccessException {
+		return memberDAO.loginById(memberVO);
 	}
 	
 	

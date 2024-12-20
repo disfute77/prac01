@@ -25,21 +25,36 @@
           <a class="nav-link active" aria-current="page" href="#">홈</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="member/listMembers.do">회원정보</a>
+          <a class="nav-link" href="${contextPath}/member/listMembers.do">회원정보</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">포인트상점</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            있어보이는드롭다운
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
+        
+        <c:choose>
+        	<c:when test="${isLogOn == true && member != null }">
+        <li class="nav-item">
+          <a class="nav-link" href="${contextPath}/member/logout.do">로그아웃</a>
         </li>
+        로그인된 사용자 : ${member.id }, 이름 : ${member.name }
+        	</c:when>
+        	<c:otherwise>
+        <li class="nav-item">
+          <a class="nav-link" href="${contextPath}/member/loginForm.do">로그인</a>
+        </li>	
+        	</c:otherwise>
+        </c:choose>
+        
+<!--         <li class="nav-item dropdown"> -->
+<!--           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> -->
+<!--             있어보이는드롭다운 -->
+<!--           </a> -->
+<!--           <ul class="dropdown-menu"> -->
+<!--             <li><a class="dropdown-item" href="#">Action</a></li> -->
+<!--             <li><a class="dropdown-item" href="#">Another action</a></li> -->
+<!--             <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+<!--           </ul> -->
+<!--         </li> -->
       </ul>
     </div>
   </div>
